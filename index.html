@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘罗慧的小蓝书</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="logo">我的小蓝书</div>
+        <nav class="nav">
+            <a href="#">刘罗慧</a>
+            <a href="#" class="active">发现</a>
+            <a href="#">25216950505</a>
+        </nav>
+        <input type="text" placeholder="搜索内容...">
+        <div class="user-actions">
+            <button class="publish-btn">发布</button>
+            <a href="profile.html"><img class="user-avatar" src="./img/head.jpg" alt="头像"></a>
+        </div>
+    </header>
+
+    <!-- 页面区域 -->
+    <div class="container">
+        <!-- 轮播图 -->
+        <div class="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+        <!-- 瀑布流 -->
+        <main class="post-grid" id="post-grid"></main>
+    </div>
+
+    <!-- 新建帖子 -->
+    <div id="publish-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>✨ 发布你的新笔记 ✨</h3>
+            <div class="input-group">
+                <label for="post-title-input">标题：</label>
+                <input type="text" id="post-title-input" placeholder="输入帖子标题..." maxlength="50">
+            </div>
+
+            <div class="input-group">
+                <label for="post-author-input">作者名：</label>
+                <input type="text" id="post-author-input" value="刘罗慧" maxlength="20">
+            </div>
+
+            <div class="input-group">
+                <label for="post-image-input">图片链接：</label>
+                <input type="text" id="post-image-input" placeholder="输入图片 URL (可留空使用默认)" value="./img/default.jpg">
+            </div>
+
+            <button id="submit-post-btn" class="publish-btn">确认发布</button>
+        </div>
+    </div>
+
+    <!-- 到达最底部提示 -->
+    <div id="footer-message" class="footer-message">
+        <p>—— 已经到底了 ——</p>
+    </div>
+    
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心 - 小蓝书</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">我的小蓝书</div>
+        <nav class="nav">
+            <a href="index.html">首页</a>
+            <a href="profile.html" class="active">我的</a>
+        </nav>
+    </header>
+
+    <div class="profile-box">
+        <h2>个人中心</h2>
+        <div class="profile-row"><span>昵称</span><span id="nick">25216950505 刘罗慧</span></div>
+        <div class="profile-row"><span>发帖</span><span id="postCount">0</span></div>
+        <div class="profile-row"><span>获赞</span><span id="likeCount">0</span></div>
+        <div class="profile-row"><span>注册时间</span><span id="regTime">2025年12月6日</span></div>
+        <button class="publish-btn" style="width:100%;margin-top:20px" onclick="logout()">退出登录</button>
+    </div>
+
+    <script>
+        // 防止闪退
+        let user = JSON.parse(localStorage.getItem('user'));
+        if (!user) {
+            user = { nick: '刘罗慧', regAt: new Date().toISOString().slice(0, 10), posts: 0, likes: 0 };
+            localStorage.setItem('user', JSON.stringify(user));
+        }
+
+        // 渲染数据
+        document.getElementById('nick').textContent = user.nick;
+        document.getElementById('postCount').textContent = user.posts || 0;
+        document.getElementById('likeCount').textContent = user.likes || 0;
+
+        // 退出退回到首页
+        function logout() {
+            localStorage.removeItem('user');
+            location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
